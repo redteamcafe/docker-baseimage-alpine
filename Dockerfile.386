@@ -1,0 +1,17 @@
+FROM i386/alpine:3.15as rootfs-stage
+
+ENV DIST alpine
+ENV REV v3.15
+ENV ARCH i386
+
+#NOTE: Install required packages
+RUN apk add --no-cache \
+  bash \
+  curl \
+  tar \
+  tzdata \
+  wget \
+  xz
+        
+COPY root/ /
+ENTRYPOINT ["/init"]
