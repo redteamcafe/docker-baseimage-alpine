@@ -1,4 +1,4 @@
-FROM amd64/alpine:3.15 as rootfs-stage
+FROM alpine:3.15
 
 ENV DIST alpine
 ENV REV v3.15
@@ -13,5 +13,6 @@ RUN apk add --no-cache \
   wget \
   xz
         
-COPY root/ /
-ENTRYPOINT ["/init"]
+COPY init.sh/ /
+RUN chmod +x /init.sh
+ENTRYPOINT ["/bin/bash", "/init.sh"]
