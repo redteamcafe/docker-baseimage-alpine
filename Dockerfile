@@ -1,4 +1,4 @@
-FROM amd64/alpine:3.15 as rootfs-stage
+FROM alpine:3.15
 
 ENV DIST alpine
 ENV REV v3.15
