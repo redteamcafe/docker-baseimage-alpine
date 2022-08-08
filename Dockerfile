@@ -13,5 +13,6 @@ RUN apk add --no-cache \
   wget \
   xz
         
-COPY root/ /
-ENTRYPOINT ["/init"]
+COPY init.sh/ /
+RUN chmod +x /init.sh
+ENTRYPOINT ["/bin/bash", "/init.sh"]
